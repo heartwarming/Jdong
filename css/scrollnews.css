@@ -1,0 +1,100 @@
+#scrolling,
+#scrolling_v{
+	position:relative;
+	margin:15px auto;
+	width:500px;
+	height:168px;
+	overflow:hidden;
+	padding:1px;
+	border:1px solid #999;
+}
+
+#scrollnews,
+#scrollnews_v{
+	position:absolute;
+	width:500px;
+	height:168px;
+	overflow:hidden;
+	display:inline;
+    top:0;
+	left:0;
+}
+#scrollnews_con,
+#scrollnews_copymsgid,
+#scrollnews_con_v,
+#scrollnews_v_copymsgid{
+   width:2000px;
+	overflow:hidden;
+}
+#scrollnews_con ul,
+#scrollnews_copymsgid ul,
+#scrollnews_con_v ul,
+#scrollnews_v_copymsgid ul{
+	float:left;
+	width:500px;
+	height:168px;
+	overflow:hidden;
+}
+#scrollnews_con_v,
+#scrollnews_v_copymsgid{
+	width:500px;
+}
+#scrollnews_con_v ul,
+#scrollnews_v_copymsgid ul{
+	clear:both;
+}
+#scrollnews_con ul li,
+#scrollnews_con_v ul li,
+#scrollnews_copymsgid ul li,
+#scrollnews_v_copymsgid ul li{
+	float:left;
+	width:322px;
+	line-height:21px;
+	height:21px;
+	overflow:hidden;
+	font-size:12px;
+}
+#scrollnews_con ul li a:link,
+#scrollnews_con ul li a:visited,
+#scrollnews_con ul li a:hover,
+#scrollnews_copymsgid ul li a:link,
+#scrollnews_copymsgid ul li a:visited,
+#scrollnews_copymsgid ul li a:hover,
+#scrollnews_con_v ul li a:link,
+#scrollnews_con_v ul li a:visited,
+#scrollnews_con_v ul li a:hover,
+#scrollnews_v_copymsgid ul li a:link,
+#scrollnews_v_copymsgid ul li a:visited,
+#scrollnews_v_copymsgid ul li a:hover{
+	color:#02449A;
+}
+#scrollnews_con ul li a:hover
+#scrollnews_copymsgid ul li a:hover,
+#scrollnews_con_v ul li a:hover
+#scrollnews_v_copymsgid ul li a:hover{
+	text-decoration:underline;
+}
+#scrollnews_con ul li.img,
+#scrollnews_copymsgid ul li.img,
+#scrollnews_con_v ul li.img,
+#scrollnews_v_copymsgid ul li.img{
+	width:154px;
+	height:115px;
+	padding:1px;
+	border:1px solid #02449A;
+	margin:10px;
+	display:inline;
+}
+#scrollnews_con ul li.first,
+#scrollnews_copymsgid ul li.first,
+#scrollnews_con_v ul li.first,
+#scrollnews_v_copymsgid ul li.first{
+	margin-top:4px;
+}
+#scrollnews_con ul li.last,
+#scrollnews_copymsgid ul li.last,
+#scrollnews_con_v ul li.last,
+#scrollnews_v_copymsgid ul li.last{
+	width:490px;
+	text-indent:10px;
+}

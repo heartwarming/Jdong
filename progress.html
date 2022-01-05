@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>progressbar带动画进度的jquery特效</title>
+		<style>
+			
+/* votebox */
+
+.votebox {
+    margin: 20px auto;
+    width: 600px;
+    border: solid 1px #ddd;
+    padding: 30px 0;
+}
+
+.votebox h2 {
+    font-size: 14px;
+    color: #05345E;
+    margin: 0;
+    text-align: center;
+}
+
+.votebox ul {
+    height: 18px;
+    margin: 20px 0 0 200px;
+}
+
+.votebox li {
+    height: 18px;
+    line-height: 18px;
+    overflow: hidden;
+    float: left;
+    margin: 0 20px 0 0;
+    font-size: 12px;
+}
+
+.votebox li span {
+    display: inline-block;
+    float: left;
+    width: 10px;
+    height: 10px;
+    overflow: hidden;
+    background: url(img/progress/barbg.gif) repeat-x;
+    margin: 3px 3px 0 0;
+}
+
+.votebox li span.barline-01 {
+    border: 1px solid #C2142C;
+    background-position: 0 0;
+}
+
+.votebox li span.barline-02 {
+    border: 1px solid #EFA804;
+    background-position: 0 -10px;
+}
+
+.votebox li span.barline-03 {
+    border: 1px solid #0A83E6;
+    background-position: 0 -20px;
+}
+
+.votebtn {
+    height: 32px;
+    overflow: hidden;
+    margin: 30px auto 0 auto;
+    width: 205px;
+}
+
+.votebtn a {
+    background: url(img/progress/yellowbtn.gif) no-repeat;
+    width: 82px;
+    height: 32px;
+    line-height: 32px;
+    overflow: hidden;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 800;
+    display: inline-block;
+    color: #fff;
+    margin: 0 10px;
+}
+
+.votebtn a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+/* barbox */
+
+.barbox {
+    height: 18px;
+    line-height: 18px;
+    overflow: hidden;
+    padding: 20px 0 0 120px;
+}
+
+.barbox dt {
+    float: left;
+    font-size: 14px;
+    width: 112px;
+    text-align: right;
+}
+
+.barbox dt a {
+    color: #0048CC;
+}
+
+.barbox dd {
+    float: left;
+}
+
+.barbox dd.last {
+    color: #999;
+}
+
+.barbox dd.barline {
+    width: 160px;
+    background: #E3E3E3;
+    height: 12px;
+    overflow: hidden;
+    margin: 3px 10px 0 10px;
+    display: inline;
+    border-bottom: solid 1px #F4F4F4;
+    border-right: solid 1px #F4F4F4;
+}
+
+.barbox dd.barline div.charts {
+    height: 10px;
+    overflow: hidden;
+    background: url(img/progress/barbg.gif) repeat-x;
+}
+
+.barbox dd.barline div.charts.barred {
+    background-position: 0 0;
+    border: 1px solid #C2142C;
+}
+
+.barbox dd.barline div.charts.baryellow {
+    background-position: 0 -10px;
+    border: 1px solid #EFA804;
+}
+
+.barbox dd.barline div.charts.barblue {
+    background-position: 0 -20px;
+    border: 1px solid #0A83E6;
+}
+
+@import url("http://fonts.googleapis.com/css?family=Give+You+Glory|Exo:800");
+      .loader-container {
+        height: 6px;
+        width: 600px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -3px;
+        margin-left: -300px;
+        background-color: transparent;
+        background-image: -webkit-linear-gradient(left, #5bd8ff, #ff0000);
+        background-image: -moz-linear-gradient(left, #5bd8ff, #ff0000);
+        background-image: -o-linear-gradient(left, #5bd8ff, #ff0000);
+        background-image: -ms-linear-gradient(left, #5bd8ff, #ff0000);
+        background-image: linear-gradient(left, #5bd8ff, #ff0000);
+        box-shadow: inset 0 -2px 2px rgba(0, 0, 0, 0.4);
+        border-radius: 3px 0 0 3px;
+      }
+      .loader-container:after {
+        content: "";
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        width: 1em;
+        height: 1em;
+        border-radius: 50%;
+        margin-top: -0.5em;
+        margin-right: -1em;
+        background-image: -webkit-linear-gradient(top, #000000, #212121);
+        background-image: -moz-linear-gradient(top, #000000, #212121);
+        background-image: -o-linear-gradient(top, #000000, #212121);
+        background-image: -ms-linear-gradient(top, #000000, #212121);
+        background-image: linear-gradient(top, #000000, #212121);
+      }
+      .loader-container.done:after {
+        background: Red;
+      }
+      .run .runner {
+        content: "";
+        position: absolute;
+        right: 0;
+        height: 100%;
+        width: 0%;
+        background-color: transparent;
+        background-image: -webkit-linear-gradient(top, #000000, #212121);
+        background-image: -moz-linear-gradient(top, #000000, #212121);
+        background-image: -o-linear-gradient(top, #000000, #212121);
+        background-image: -ms-linear-gradient(top, #000000, #212121);
+        background-image: linear-gradient(top, #000000, #212121);
+        animation: loader 10s linear;
+      }
+      .meter {
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 2em;
+        margin-top: .3em;
+        color: #ff0000;
+        animation: meter 10s linear;
+        text-shadow: 0 -1px 0 #333333;
+      }
+      .meter:after {
+        content: "%";
+      }
+      @keyframes loader {
+        0% {
+          width: 100%;
+        }
+        100% {
+          width: 0%;
+        }
+      }
+      @keyframes meter {
+        0% {
+          color: #5bd8ff;
+        }
+        100% {
+          color: #ff0000;
+        }
+      }
+      /* Decoration */
+      html,body {
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        background:#f4f4f4;
+      }     
+      footer {
+        font-family: 'Give You Glory', cursive;
+        position: absolute;
+        bottom: 2em;
+        right: 1em;
+        color: #777;
+        font-size: 1.2em;
+      }
+      footer a {
+        text-decoration: none;
+        color: #777;
+        border: none;
+      }
+      #wrapper {
+        width: 600px;
+        margin: 0 auto;
+      }
+		</style>
+	</head>
+	<body>
+		<div class="votebox">
+			<h2>票选最给力的网页特效</h2>
+			<ul>
+				<li><span class="barline-01"></span>最大值</li>
+				<li><span class="barline-02"></span>一般值</li>
+				<li><span class="barline-03"></span>最小值</li>
+			</ul>
+			<dl class="barbox">
+				<dt><a href="http://www.jsfoot.com/jquery/items/">jquery 特效</a></dt>
+				<dd class="barline">
+					<div divindex="0" id="chartSlide_0" w="70" style="width:0px;" class="charts"></div>
+				</dd>
+				<dd class="last">70%</dd>
+			</dl>
+			<dl class="barbox">
+				<dt><a href="###">javascript 特效</a></dt>
+				<dd class="barline">
+					<div divindex="1" id="chartSlide_1" w="80" style="width:0px;" class="charts"></div>
+				</dd>
+				<dd class="last">50%</dd>
+
+			</dl>
+			<dl class="barbox">
+				<dt><a href="###">CSS 特效</a></dt>
+				<dd class="barline">
+					<div divindex="2" id="chartSlide_2" w="20" style="width:0px;" class="charts"></div>
+				</dd>
+				<dd class="last">20%</dd>
+			</dl>
+
+			<dl class="barbox">
+				<dt><a href="###">HTML5 特效</a></dt>
+				<dd class="barline">
+					<div divindex="3" id="chartSlide_3" w="10" style="width:0px;" class="charts"></div>
+				</dd>
+				<dd class="last">10%</dd>
+			</dl>
+
+			<div class="votebtn">
+				<a href="javascript:void(0);">前往投票</a>
+				<a href="javascript:void(0);">返回</a>
+			</div>
+		</div>
+
+		<div id="wrapper">
+			<div class="loader-container">
+				<div class="meter">0</div>
+				<span class="runner"></span>
+			</div>
+		</div>
+		<div style="text-align:center;clear:both"></div>
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript">
+		function animate() {
+				var max = "barred";
+				var middle = "baryellow";
+				var min = "barblue";
+
+				var maxValue = 0;
+				var minValue = 0;
+
+				var maxIndex = 0;
+				var minIndex = 0;
+
+				$(".charts").each(function (i, item) {
+					var a = parseInt($(item).attr("w"));
+
+					if (i == 0) {
+						minValue = a;
+						minIndex = i;
+					}
+
+					if (a > maxValue) {
+						maxValue = a;
+						maxIndex = i;
+					} else if (a < minValue) {
+						minValue = a;
+						minIndex = i;
+					}
+
+				});
+
+				$(".charts").each(function (i, item) {
+					var addStyle = "";
+					var divindex = parseInt($(item).attr("divindex"));
+					if (divindex == maxIndex) {
+						addStyle = max;
+					} else if (divindex == minIndex) {
+						addStyle = min;
+					} else {
+						addStyle = middle;
+					}
+
+					$(item).addClass(addStyle);
+					var a = $(item).attr("w");
+					$(item).animate({
+						width: a + "%"
+					}, 1000);
+				});
+
+			}
+			animate();
+</script>
+<script>
+	var Loader = function () {
+			var loader = document.querySelector('.loader-container'),
+				meter = document.querySelector('.meter'),
+				k, i = 1,
+				counter = function () {
+					if (i <= 100) {
+						meter.innerHTML = i.toString();
+						i++;
+					} else {
+						window.clearInterval(k);
+					}
+				};
+
+			return {
+				init: function (options) {
+					options = options || {};
+					var time = options.time ? options.time : 0,
+						interval = time / 100;
+
+					loader.classList.add('run');
+					k = window.setInterval(counter, interval);
+					setTimeout(function () {
+						loader.classList.add('done');
+					}, time);
+				},
+			}
+		}();
+
+		Loader.init({
+			time: 10000
+		});
+</script>
+	</body>
+</html>

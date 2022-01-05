@@ -1,0 +1,415 @@
+/*reset*/
+body {
+	margin: 0;
+	padding: 6px 0 0;
+	background: #fff;
+	color: #000;
+	font: 16px/1.5 arial, sans-serif
+}
+
+body,
+th,
+td {
+	font-family: arial
+}
+
+html,
+body,
+ul,
+ol,
+li,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+fieldset,
+legend,
+input,
+button,
+textarea,
+p,
+blockquote,
+th,
+td {
+	margin: 0;
+	padding: 0
+}
+
+p,
+form,
+ol,
+ul,
+li,
+h3,
+menu {
+	list-style: none
+}
+
+table,
+img,
+fieldset {
+	border: 0
+}
+
+img,
+object,
+select,
+input,
+textarea,
+button {
+	vertical-align: middle
+}
+
+article,
+aside,
+footer,
+header,
+section,
+nav,
+menu,
+figure,
+figcaption,
+hgroup,
+details {
+	display: block
+}
+
+caption,
+th {
+	text-align: left
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+textarea,
+select,
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+i,
+b,
+strong,
+small,
+th,
+var,
+abbr {
+	font-style: normal;
+	font-size: 100%
+}
+
+q:before,
+q:after {
+	content: ''
+}
+
+ins,
+s,
+u,
+del {
+	text-decoration: none
+}
+
+input {
+	padding-top: 0;
+	padding-bottom: 0
+}
+
+em,
+cite {
+	font-style: normal
+}
+
+em {
+	color: #c00
+}
+
+a {
+	color: #0063c8;
+	text-decoration: none
+}
+
+a:hover {
+	text-decoration: underline
+}
+
+a:hover em {
+	text-decoration: underline
+}
+
+.gclearfix:after {
+	display: block;
+	visibility: hidden;
+	clear: both;
+	height: 0;
+	content: ''
+}
+
+.gclearfix {
+	zoom: 1
+}
+
+/*mian*/
+.top-vrank {
+	overflow: hidden;
+	position: relative;
+	background: #fff;
+	padding-bottom: 0;
+}
+
+.top-vrank .mod-hd:before,
+.top-vrank .mod-hd:after {
+	content: "";
+	display: table
+}
+
+.top-vrank .mod-hd:after {
+	clear: both
+}
+
+.top-vrank .mod-hd {
+	*zoom: 1;
+	margin-bottom: 16px;
+    width: 100%;
+    height: 50px;
+    background-color: #4488A7;
+    padding: 12px;
+}
+
+.top-vrank .mod-bd {
+	margin-top: 0
+}
+
+.top-vrank h3 {
+	font-size: 16px;
+	float: left;
+	color: #bbbccd;
+	margin-right: 20px;
+	margin-top: 3px
+}
+
+.top-vrank .tabs {
+	float: left;
+	font-size: 16px;
+    margin: 0 -10px;
+}
+
+.top-vrank .tabs li {
+	width: 42px;
+	height: 23px;
+	float: left;
+	text-align: center;
+	line-height: 22px;
+	background-position: 0 -72px
+}
+
+.top-vrank .tabs a {
+	color: #a5a5b5
+}
+
+.top-vrank .tabs a:hover {
+	color: #5db538;
+	text-decoration: none
+}
+
+.top-vrank .tabs .active {
+	background: #332f3a url(../img/singer/ico.png) no-repeat 0 0
+}
+
+.top-vrank .tabs .active a {
+	color: #5db538
+}
+
+.top-vrank .more {
+	position: absolute;
+	top: 17px;
+	right: 17px;
+	font-size: 16px;
+}
+
+.top-vrank .more a {
+	color: #a5a5b5
+}
+
+.top-vrank .more a:hover {
+	color: #5db538;
+	text-decoration: none
+}
+
+.top-vrank .mod-bd .views {
+	position: relative;
+    width: 1038px;
+    height: 250px;
+    overflow: hidden;
+    -webkit-perspective: 1500px;
+    -moz-perspective: 1500px;
+    perspective: 1500px;
+    -webkit-perspective-origin: 50% 50%;
+    -moz-perspective-origin: 50% 50%;
+    perspective-origin: 50% 50%;
+    margin: 0 -5px;
+}
+
+.top-vrank .views .view-item {
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 1;
+	background: #fff;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	-webkit-animation: fadeout .3s ease-in forwards;
+	-moz-animation: fadeout .3s ease-in forwards;
+	animation: fadeout .3s ease-in forwards
+}
+
+.top-vrank .views .active {
+	-webkit-animation: fadein .5s ease forwards;
+	-moz-animation: fadein .5s ease forwards;
+	animation: fadein .5s ease forwards;
+	z-index: 2
+}
+
+.top-vrank .views .first {
+	-webkit-animation: none;
+	-moz-animation: none;
+	animation: none;
+	z-index: 2;
+	background: #fff
+}
+
+@-webkit-keyframes fadeout {
+	from {
+		-webkit-transform: translate3d(0, 0, 0);
+		opacity: 1
+	}
+
+	to {
+		-webkit-transform: translate3d(0, 0, -300px);
+		opacity: 0
+	}
+}
+
+@-moz-keyframes fadeout {
+	from {
+		-moz-transform: translate3d(0, 0, 0);
+		opacity: 1
+	}
+
+	to {
+		-moz-transform: translate3d(0, 0, -300px);
+		opacity: 0
+	}
+}
+
+@keyframes fadeout {
+	from {
+		transform: translate3d(0, 0, 0);
+		opacity: 1
+	}
+
+	to {
+		transform: translate3d(0, 0, -300px);
+		opacity: 0
+	}
+}
+
+@-webkit-keyframes fadein {
+	from {
+		-webkit-transform: translate3d(-100%, 0, 0)
+	}
+
+	to {
+		-webkit-transform: translate3d(0, 0, 0)
+	}
+}
+
+@-moz-keyframes fadein {
+	from {
+		-moz-transform: translate3d(-100%, 0, 0)
+	}
+
+	to {
+		-moz-transform: translate3d(0, 0, 0)
+	}
+}
+
+@keyframes fadein {
+	from {
+		transform: translate3d(-100%, 0, 0)
+	}
+
+	to {
+		transform: translate3d(0, 0, 0)
+	}
+}
+
+.top-vrank .view-list li {
+	position: relative;
+    width: 197px;
+    font-size: 16px;
+    text-align: center;
+    float: left;
+    z-index: 1;
+    overflow: hidden;
+    margin: 0 5px 10px;
+}
+
+.top-vrank .view-list li a {
+	text-decoration: none;
+	color: #888999
+}
+
+.top-vrank .view-list li a:hover {
+	color: #5db538
+}
+
+.top-vrank .view-list li img {
+	width: 200px;
+	height: 200px;
+	border-radius: 4px;
+	box-shadow: 0 1px 3px #222
+}
+
+.top-vrank .view-list li .mask {
+	width: 200px;
+	height: 86px;
+	position: absolute;
+	top: -86px;
+	left: -92px;
+	z-index: 3;
+	background: url(http://p8.qhimg.com/t0129d4cce7a885cf2e.png) no-repeat 0 0;
+	-webkit-transition: .1s left, 0.2s .1s top;
+	-moz-transition: .1s left, 0.2s .1s top;
+	-ms-transition: .1s left, 0.2s .1s top;
+	-o-transition: .1s left, 0.2s .1s top;
+	transition: .1s left, 0.2s .1s top;
+	pointer-events: none
+}
+
+.top-vrank .view-list li:hover .mask {
+	left: 0;
+	top: 0
+}
+
+.top-vrank .view-list li .name {
+	display: block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	padding: 7px 0 14px
+}

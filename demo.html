@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>搜狗指南</title>
+    <style>
+        .left {
+            width: 70px;
+            height: 300px;
+            background: red;
+            position: absolute;
+            top: 80px;
+        }
+
+        .content {
+            width: 700px;
+            height: 3000px;
+            background: blue;
+        }
+    </style>
+    <script src="js/jquery.js"></script>
+    </script>
+    <script>
+        (function () {
+            (window).scroll(function () {
+                var h = (document).scrollTop();
+                (".left").stop()
+                    .animate({ "top": h + 80 }, 700);
+            });
+        });
+
+    </script>
+</head>
+
+<body>
+    <div class="left"></div>
+    <div class="content"></div>
+</body>
+
+</html>

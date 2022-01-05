@@ -1,0 +1,269 @@
+<!DOCTYPE html">
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>jquery实现led广告牌旋转系统图片切换效果</title>
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+            background: #CFB616 url(img/led/bg.png) repeat-x 0px -80px;
+            overflow: hidden;
+        }
+
+        .back {
+            width: 115px;
+            height: 19px;
+            position: absolute;
+            bottom: 50px;
+            left: 10px;
+            background: transparent url(img/led/back.png) no-repeat 0px 0px;
+        }
+
+        .palmtrees {
+            position: absolute;
+            bottom: 0px;
+            right: 0px;
+            width: 304px;
+            height: 352px;
+            background: transparent url(img/led/shadow_palmtrees.png) no-repeat 0px 0px;
+        }
+
+        .powerline {
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+            width: 556px;
+            height: 264px;
+            background: transparent url(img/led/shadow_powerlines.png) no-repeat 0px 0px;
+        }
+
+        .city {
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+            width: 100%;
+            height: 74px;
+            background: transparent url(img/led/shadow_bg.png) repeat-x 0px 0px;
+        }
+
+        .billboard {
+            position: absolute;
+            bottom: 0px;
+            left: 50%;
+            margin-left: -447px;
+            width: 916px;
+            height: 599px;
+            background: transparent url(img/led/billboard.png) no-repeat 0px 0px;
+        }
+
+        .container {
+            position: absolute;
+            bottom: 0px;
+            left: 50%;
+            margin-left: -447px;
+            width: 916px;
+            height: 599px;
+        }
+
+        .ad {
+            width: 800px;
+            height: 336px;
+            position: relative;
+            margin: 35px 0px 0px 60px;
+            background-color: #333;
+        }
+
+        .ad_1 img {
+            width: 35px;
+            height: 336px;
+            position: absolute;
+        }
+
+        .ad_2 img {
+            width: 0px;
+            height: 336px;
+            margin-left: 18px;
+            position: absolute;
+        }
+
+        .slice_1 {
+            left: 0px;
+        }
+
+        .slice_2 {
+            left: 36px;
+        }
+
+        .slice_3 {
+            left: 72px;
+        }
+
+        .slice_4 {
+            left: 108px;
+        }
+
+        .slice_5 {
+            left: 144px;
+        }
+
+        .slice_6 {
+            left: 180px;
+        }
+
+        .slice_7 {
+            left: 216px;
+        }
+
+        .slice_8 {
+            left: 252px;
+        }
+
+        .slice_9 {
+            left: 288px;
+        }
+
+        .slice_10 {
+            left: 324px;
+        }
+
+        .slice_11 {
+            left: 360px;
+        }
+
+        .slice_12 {
+            left: 396px;
+        }
+
+        .slice_13 {
+            left: 432px;
+        }
+
+        .slice_14 {
+            left: 468px;
+        }
+
+        .slice_15 {
+            left: 504px;
+        }
+
+        .slice_16 {
+            left: 540px;
+        }
+
+        .slice_17 {
+            left: 576px;
+        }
+
+        .slice_18 {
+            left: 612px;
+        }
+
+        .slice_19 {
+            left: 648px;
+        }
+
+        .slice_20 {
+            left: 684px;
+        }
+
+        .slice_21 {
+            left: 720px;
+        }
+
+        .slice_22 {
+            left: 756px;
+        }
+
+        .white {
+            color: #CCCCCC;
+        }
+
+        .white a {
+            color: #CCCCCC;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="palmtrees"></div>
+    <div class="powerline"></div>
+    <div class="city"></div>
+    <div class="container">
+        <div class="ad">
+            <div id="ad_1" class="ad_1">
+                <img class="slice_1" src="img/led/ads/ad1_slice01.jpg" />
+                <img class="slice_2" src="img/led/ads/ad1_slice02.jpg" />
+                <img class="slice_3" src="img/led/ads/ad1_slice03.jpg" />
+                <img class="slice_4" src="img/led/ads/ad1_slice04.jpg" />
+                <img class="slice_5" src="img/led/ads/ad1_slice05.jpg" />
+                <img class="slice_6" src="img/led/ads/ad1_slice06.jpg" />
+                <img class="slice_7" src="img/led/ads/ad1_slice07.jpg" />
+                <img class="slice_8" src="img/led/ads/ad1_slice08.jpg" />
+                <img class="slice_9" src="img/led/ads/ad1_slice09.jpg" />
+                <img class="slice_10" src="img/led/ads/ad1_slice10.jpg" />
+                <img class="slice_11" src="img/led/ads/ad1_slice11.jpg" />
+                <img class="slice_12" src="img/led/ads/ad1_slice12.jpg" />
+                <img class="slice_13" src="img/led/ads/ad1_slice13.jpg" />
+                <img class="slice_14" src="img/led/ads/ad1_slice14.jpg" />
+                <img class="slice_15" src="img/led/ads/ad1_slice15.jpg" />
+                <img class="slice_16" src="img/led/ads/ad1_slice16.jpg" />
+                <img class="slice_17" src="img/led/ads/ad1_slice17.jpg" />
+                <img class="slice_18" src="img/led/ads/ad1_slice18.jpg" />
+                <img class="slice_19" src="img/led/ads/ad1_slice19.jpg" />
+                <img class="slice_20" src="img/led/ads/ad1_slice20.jpg" />
+                <img class="slice_21" src="img/led/ads/ad1_slice21.jpg" />
+                <img class="slice_22" src="img/led/ads/ad1_slice22.jpg" />
+            </div>
+            <div id="ad_2" class="ad_2">
+                <img class="slice_1" src="img/led/ads/ad2_slice01.jpg" />
+                <img class="slice_2" src="img/led/ads/ad2_slice02.jpg" />
+                <img class="slice_3" src="img/led/ads/ad2_slice03.jpg" />
+                <img class="slice_4" src="img/led/ads/ad2_slice04.jpg" />
+                <img class="slice_5" src="img/led/ads/ad2_slice05.jpg" />
+                <img class="slice_6" src="img/led/ads/ad2_slice06.jpg" />
+                <img class="slice_7" src="img/led/ads/ad2_slice07.jpg" />
+                <img class="slice_8" src="img/led/ads/ad2_slice08.jpg" />
+                <img class="slice_9" src="img/led/ads/ad2_slice09.jpg" />
+                <img class="slice_10" src="img/led/ads/ad2_slice10.jpg" />
+                <img class="slice_11" src="img/led/ads/ad2_slice11.jpg" />
+                <img class="slice_12" src="img/led/ads/ad2_slice12.jpg" />
+                <img class="slice_13" src="img/led/ads/ad2_slice13.jpg" />
+                <img class="slice_14" src="img/led/ads/ad2_slice14.jpg" />
+                <img class="slice_15" src="img/led/ads/ad2_slice15.jpg" />
+                <img class="slice_16" src="img/led/ads/ad2_slice16.jpg" />
+                <img class="slice_17" src="img/led/ads/ad2_slice17.jpg" />
+                <img class="slice_18" src="img/led/ads/ad2_slice18.jpg" />
+                <img class="slice_19" src="img/led/ads/ad2_slice19.jpg" />
+                <img class="slice_20" src="img/led/ads/ad2_slice20.jpg" />
+                <img class="slice_21" src="img/led/ads/ad2_slice21.jpg" />
+                <img class="slice_22" src="img/led/ads/ad2_slice22.jpg" />
+            </div>
+        </div>
+    </div>
+    <div class="billboard"></div>
+    <script src="js/jquery.js" type="text/javascript"></script>
+    <script>
+        $(function () {
+            $('#ad_1 > img').each(function (i, e) {
+                rotate($(this), 500, 3000, i);
+            });
+            function rotate(elem1, speed, timeout, i) {
+                elem1.animate({ 'marginLeft': '18px', 'width': '0px' }, speed, function () {
+                    var other;
+                    if (elem1.parent().attr('id') == 'ad_1')
+                        other = $('#ad_2').children('img').eq(i);
+                    else
+                        other = $('#ad_1').children('img').eq(i);
+                    other.animate({ 'marginLeft': '0px', 'width': '35px' }, speed, function () {
+                        var f = function () { rotate(other, speed, timeout, i) };
+                        setTimeout(f, timeout);
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

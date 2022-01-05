@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>图片重叠效果制作5张图片重叠切换效果代码_js代码</title>
+	<style type="text/css">
+		.picbox {
+			position: relative;
+			width: 780px;
+			height: 400px;
+			overflow: hidden;
+			margin: 100px auto 0 auto;
+		}
+	
+		.sss {
+			z-index: 1;
+		}
+	
+		.ss {
+			z-index: 2
+		}
+	</style>
+</head>
+
+<body>
+	<div class="picbox">
+		<img class="src sss" src="img/ImageSwitcher/1.jpg" width="420" height="210" alt="" style="position:absolute;top:87px;left:174px;" />
+		<img class="src" src="img/ImageSwitcher/2.jpg" width="384" height="192" alt="" />
+		<img class="src" src="img/ImageSwitcher/3.jpg" width="384" height="192" alt="" />
+		<img class="src" src="img/ImageSwitcher/4.jpg" width="384" height="192" alt="" />
+		<img class="src " src="img/ImageSwitcher/5.jpg" width="384" height="192" alt="" />
+	</div>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript">
+		var s = $(".src");
+		for (var i = 0; i < s.length; i++) {
+			s.eq(i).css({ top: s.eq(i).position().top, left: s.eq(i).position().left })
+		}
+		s.css("position", "absolute");
+		$.each(s, function (k, v) {
+			$(v).bind("mouseover", function () {
+				if (!s.is(":animated")) {
+					if (!$(v).hasClass("sss")) {
+						var sss = $(".sss");
+						var ls = sss.position().left;
+						var ts = sss.position().top;
+						var ws = sss.width();
+						var hs = sss.height();
+						s.eq(k).addClass("ss").animate({ left: ls, top: ts, width: ws, height: hs }, 360);
+						sss.animate({ left: $(v).position().left, top: $(v).position().top, width: $(v).width(), height: $(v).height() }, 400, "swing",
+							function () {
+								$(this).removeClass("sss");
+								s.eq(k).addClass("sss").removeClass("ss")
+							});
+					}
+				}
+			});
+
+		});
+	</script>
+</body>
+</html>

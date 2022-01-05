@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+
+<body>
+	<form name="form1" method="post" action="">
+		<p>
+			<input type="button" name="Submit" value="变换背景" onclick="turncolors()">
+		</p>
+		<p>用按钮随意变换背景颜色.</p>
+	</form>
+</body>
+<script>
+	var Arraycolor = new Array("red", "blue", "green", "yellow", "black");
+	var n = 0;
+	function turncolors() {
+		if (n == Arraycolor.length) n = 0; //if 语句简写 没有{} 相当于 if(n == Arraycolor.length){n=0;}
+		document.bgColor = Arraycolor[n];
+		n++;
+	}
+</script>
+
+</html>
